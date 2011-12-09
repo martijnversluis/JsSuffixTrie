@@ -14,7 +14,7 @@ class JsSuffixTrie
       next = node[chr]
       
       if next
-        parent = next
+        node = next
       else
         node[chr] = {}
         node = node[chr]

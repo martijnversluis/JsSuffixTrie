@@ -6,7 +6,7 @@ var JsSuffixTrie = (function () {
     }
     
     JsSuffixTrie.prototype.add = function (string) {
-        var chr, index, length, next, node, parent;
+        var chr, index, length, next, node;
         node = this.structure;
         length = string.length;
         index = 0;
@@ -16,7 +16,7 @@ var JsSuffixTrie = (function () {
             next = node[chr];
             
             if (next) {
-                parent = next;
+                node = next;
             } else {
                 node[chr] = {};
                 node = node[chr];
