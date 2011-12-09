@@ -22,25 +22,25 @@ Documentation
 
 ###Constructor
 
-####<pre>JsSuffixTrie()</pre>
+####<code>JsSuffixTrie()</code>
 
 Creates an empty instance
 
 ###Methods
 
-####<pre>add(string)</pre>
+####add(string)
 
 Adds the specified string to the trie. Returns <code>true</code> if the string is not already in the trie, otherwise <code>false</code>
 
-####<pre>remove(string)</pre>
+####remove(string)
 
 Removes the specified string from the trie. Returns <code>true</code> if the string was found, otherwise <code>false</code>.
 
-####<pre>contains(string)</pre>
+####contains(string)
 
-Return <code>true</code> is the specified string is in the trie, an <code>false</code> otherwise.
+Returns <code>true</code> if the specified string is in the trie, an <code>false</code> otherwise.
 
-####<pre>each(callback)</pre>
+####each(callback)
 
 Calls the specified callback for each item in the trie.
 
@@ -52,19 +52,19 @@ trie.each(function (index, item) {
     console.log("#" + index + ": " + items);
 });</pre>
 
-####<pre>size()</pre>
+####size()
 
 Returns the number of items in the trie
 
-####<pre>toArray()</pre>
+####toArray()
 
 Creates a new array containing all item from the trie.
 
-####<pre>toJSON()</pre>
+####toJSON()
 
 Creates a JSON serialization of the internal structure of the trie. The trie can be recreated with <code>JsSuffixTrie.fromJSON()</code>
 
-####<pre>JsSuffixTrie.fromArray(array)</pre>
+####JsSuffixTrie.fromArray(array)
 
 Creates an instance an adds each item in the array to the trie.
 
@@ -73,7 +73,7 @@ _example:_
 <pre>var array = ['one', 'two', 'three'];
 var trie = JsSuffixTrie.fromArray(array);</pre>
 
-####<pre>JsSuffixTrie.fromJSON(json)</pre>
+####JsSuffixTrie.fromJSON(json)
 
 Recreates a JsSuffixTrie that has been serialized to JSON.
 
