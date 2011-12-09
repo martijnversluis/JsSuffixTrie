@@ -1,6 +1,8 @@
 class JsSuffixTrie
 
-  constructor: (@structure = {}) -> @count = 0
+  constructor: () ->
+    @count = 0
+    @structure = {}
   
   add: (string) ->
     node = @structure
@@ -89,7 +91,8 @@ class JsSuffixTrie
     array
 
   @fromJSON: (json) ->
-    tree = new DictionaryTree(JSON.parse json)
+    tree = new DictionaryTree
+    tree.structure = JSON.parse json
     tree.calculateSize()
     tree  
   
