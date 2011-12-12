@@ -44,16 +44,27 @@ class JsSuffixTrie
       false
   
   contains: (string) ->
+    node = @findNode(string)
+    node && node.terminator
+    
+  subTrie: (prefix) ->
+    node = @findNode(prefix)
+    new JsSuffixTrie(prefix)
+    
+  find: (prefix) ->
+    @toArray @findNode(prefix), ""
+    
+  findNode: (string) ->
     node = @structure
     length = string.length
     index = 0
-  
+    
     while index < length
       currentChar = string[index++]
       node = node[currentChar]
-      return false unless node
+      return null unless node
       
-    return node.terminator == true
+    return node
     
   each: (callback) -> JsSuffixTrie.each(callback, @structure, 0, "")
     
@@ -86,8 +97,13 @@ class JsSuffixTrie
     tree
     
   toArray: ->
+    JsSuffixTrie.toArray(@structure, "") ->
+    
+  @toArray: (node, prefix) ->
     array = []
-    @each (index, value) -> array[index] = value
+    @each (index, value) ->
+      array[index] = value
+    , @structure, 0, ""
     array
 
   @fromJSON: (json) ->
