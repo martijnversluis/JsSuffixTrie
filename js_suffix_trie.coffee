@@ -9,8 +9,8 @@ class JsSuffixTrie
     length = string.length
     index = 0
     
-    while index++ < length
-      chr = string[index]
+    while index < length
+      chr = string[index++]
       next = node[chr]
       
       if next
@@ -31,8 +31,8 @@ class JsSuffixTrie
     length = string.length
     index = 0
     
-    while index++ < length
-      chr = string[index]
+    while index < length
+      chr = string[index++]
       node = node[chr]
       return false unless node
       
@@ -48,8 +48,8 @@ class JsSuffixTrie
     length = string.length
     index = 0
   
-    while index++ < length
-      currentChar = string[index]
+    while index < length
+      currentChar = string[index++]
       node = node[currentChar]
       return false unless node
       
@@ -80,7 +80,7 @@ class JsSuffixTrie
 
     length = array.length
     i = 0
-    tree.add array[i] while i++ < length
+    tree.add array[i++] while i < length
 
     tree.calculateSize()
     tree
