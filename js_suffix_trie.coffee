@@ -95,7 +95,7 @@ class JsSuffixTrie
     i = 0
     tree.add array[i++] while i < length
 
-    tree.calculateSize()
+    tree.count = i
     tree
     
   toArray: ->
