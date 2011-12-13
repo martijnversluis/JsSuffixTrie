@@ -89,7 +89,7 @@ class JsSuffixTrie
     size
   
   @fromArray: (array) ->
-    tree = new DictionaryTree
+    tree = new JsSuffixTrie
 
     length = array.length
     i = 0
@@ -109,7 +109,7 @@ class JsSuffixTrie
     array
 
   @fromJSON: (json) ->
-    tree = new DictionaryTree
+    tree = new JsSuffixTrie
     tree.structure = JSON.parse json
     tree.calculateSize()
     tree  
