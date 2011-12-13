@@ -60,7 +60,7 @@ JsSuffixTrie = (function() {
     return subTrie;
   };
   JsSuffixTrie.prototype.find = function(prefix) {
-    return this.toArray(this.findNode(prefix), "");
+    return JsSuffixTrie.toArray(this.findNode(prefix), "");
   };
   JsSuffixTrie.prototype.findNode = function(string) {
     var currentChar, index, length, node;
@@ -104,33 +104,33 @@ JsSuffixTrie = (function() {
     return size;
   };
   JsSuffixTrie.fromArray = function(array) {
-    var i, length, tree;
-    tree = new JsSuffixTrie;
+    var i, length, trie;
+    trie = new JsSuffixTrie;
     length = array.length;
     i = 0;
     while (i < length) {
-      tree.add(array[i++]);
+      trie.add(array[i++]);
     }
-    tree.calculateSize();
-    return tree;
+    trie.count = i;
+    return trie;
   };
   JsSuffixTrie.prototype.toArray = function() {
-    return JsSuffixTrie.toArray(this.structure, "")(function() {});
+    return JsSuffixTrie.toArray(this.structure, "");
   };
   JsSuffixTrie.toArray = function(node, prefix) {
     var array;
     array = [];
     this.each(function(index, value) {
       return array[index] = value;
-    }, this.structure, 0, "");
+    }, node, 0, prefix);
     return array;
   };
   JsSuffixTrie.fromJSON = function(json) {
-    var tree;
-    tree = new JsSuffixTrie;
-    tree.structure = JSON.parse(json);
-    tree.calculateSize();
-    return tree;
+    var trie;
+    trie = new JsSuffixTrie;
+    trie.structure = JSON.parse(json);
+    trie.calculateSize();
+    return trie;
   };
   JsSuffixTrie.prototype.toJSON = function() {
     return JSON.stringify(this.structure);
