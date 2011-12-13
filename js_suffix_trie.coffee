@@ -54,7 +54,7 @@ class JsSuffixTrie
     subTrie
     
   find: (prefix) ->
-    @toArray @findNode(prefix), ""
+    JsSuffixTrie.toArray @findNode(prefix), ""
     
   findNode: (string) ->
     node = @structure
