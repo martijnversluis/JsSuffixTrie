@@ -99,13 +99,13 @@ class JsSuffixTrie
     trie
     
   toArray: ->
-    JsSuffixTrie.toArray(@structure, "") ->
+    JsSuffixTrie.toArray(@structure, "")
     
   @toArray: (node, prefix) ->
     array = []
     @each (index, value) ->
       array[index] = value
-    , @structure, 0, ""
+    , node, 0, prefix
     array
 
   @fromJSON: (json) ->
