@@ -42,7 +42,7 @@ Returns <code>true</code> if the specified string is in the trie, an <code>false
 
 ####each(callback)
 
-Calls the specified callback for each item in the trie.
+Calls the specified callback for each item in the trie. Returns the size of the trie.
 
 _example:_
 
