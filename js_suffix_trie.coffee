@@ -49,7 +49,9 @@ class JsSuffixTrie
     
   subTrie: (prefix) ->
     node = @findNode(prefix)
-    new JsSuffixTrie(prefix)
+    subTrie = new JsSuffixTrie
+    subTrie.structure = node
+    subTrie
     
   find: (prefix) ->
     @toArray @findNode(prefix), ""
