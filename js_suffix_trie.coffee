@@ -45,7 +45,7 @@ class JsSuffixTrie
   
   contains: (string) ->
     node = @findNode(string)
-    node && node.terminator
+    node isnt null && node.terminator
     
   subTrie: (prefix) ->
     node = @findNode(prefix)
