@@ -89,14 +89,14 @@ class JsSuffixTrie
     size
   
   @fromArray: (array) ->
-    tree = new JsSuffixTrie
+    trie = new JsSuffixTrie
 
     length = array.length
     i = 0
-    tree.add array[i++] while i < length
+    trie.add array[i++] while i < length
 
-    tree.count = i
-    tree
+    trie.count = i
+    trie
     
   toArray: ->
     JsSuffixTrie.toArray(@structure, "") ->
@@ -109,9 +109,9 @@ class JsSuffixTrie
     array
 
   @fromJSON: (json) ->
-    tree = new JsSuffixTrie
-    tree.structure = JSON.parse json
-    tree.calculateSize()
-    tree  
+    trie = new JsSuffixTrie
+    trie.structure = JSON.parse json
+    trie.calculateSize()
+    trie  
   
   toJSON: -> JSON.stringify @structure
