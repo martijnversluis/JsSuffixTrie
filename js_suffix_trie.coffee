@@ -98,14 +98,15 @@ class JsSuffixTrie
     trie.count = i
     trie
     
-  toArray: ->
-    JsSuffixTrie.toArray(@structure, "")
+  toArray: -> JsSuffixTrie.toArray(@structure, "")
     
   @toArray: (node, prefix) ->
     array = []
+    
     @each (index, value) ->
       array[index] = value
     , node, 0, prefix
+    
     array
 
   @fromJSON: (json) ->
