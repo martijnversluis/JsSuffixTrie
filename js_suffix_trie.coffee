@@ -3,6 +3,7 @@ class JsSuffixTrie
   constructor: () ->
     @count = 0
     @structure = {}
+    @prefix = ""
   
   add: (string) ->
     node = @structure
@@ -51,10 +52,10 @@ class JsSuffixTrie
     node = @findNode(prefix)
     subTrie = new JsSuffixTrie
     subTrie.structure = node
+    subTrie.prefix = prefix
     subTrie
     
-  find: (prefix) ->
-    JsSuffixTrie.toArray @findNode(prefix), ""
+  find: (prefix) -> JsSuffixTrie.nodeToArray @findNode(prefix), ""
     
   findNode: (string) ->
     node = @structure
@@ -68,7 +69,7 @@ class JsSuffixTrie
       
     return node
     
-  each: (callback) -> JsSuffixTrie.each(callback, @structure, 0, "")
+  each: (callback) -> JsSuffixTrie.each(callback, @structure, 0, @prefix)
     
   @each: (callback, node, index, string) ->
     callback(index++, string) if node.terminator
@@ -98,9 +99,9 @@ class JsSuffixTrie
     trie.count = i
     trie
     
-  toArray: -> JsSuffixTrie.toArray(@structure, "")
+  toArray: -> JsSuffixTrie.nodeToArray(@structure, @prefix)
     
-  @toArray: (node, prefix) ->
+  @nodeToArray: (node, prefix) ->
     array = []
     
     @each (index, value) ->
