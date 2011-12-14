@@ -189,7 +189,7 @@ describe("JsSuffixTrie", function() {
         };
         spyOn(JsSuffixTrie, "nodeToArray").andReturn([]);
         this.trie.find(this.prefix);
-        return expect(JsSuffixTrie.nodeToArray).toHaveBeenCalledWith(stubbedFindNode, "");
+        return expect(JsSuffixTrie.nodeToArray).toHaveBeenCalledWith(stubbedFindNode, this.prefix);
       });
     });
   });

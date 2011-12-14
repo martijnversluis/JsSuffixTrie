@@ -143,7 +143,7 @@ describe "JsSuffixTrie", ->
         spyOn(JsSuffixTrie, "nodeToArray").andReturn []
         
         @trie.find(@prefix)
-        expect(JsSuffixTrie.nodeToArray).toHaveBeenCalledWith(stubbedFindNode, "")
+        expect(JsSuffixTrie.nodeToArray).toHaveBeenCalledWith(stubbedFindNode, @prefix)
         
   describe "#findNode", ->
     describe "finding a subNode", ->
