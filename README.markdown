@@ -130,5 +130,4 @@ Planned
 -------
 
 * Internet Explorer benchmarks
-* providing string search by prefix (all strings that begin with...)
 * rewriting #each without recursion
