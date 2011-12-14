@@ -40,6 +40,31 @@ Removes the specified string from the trie. Returns <code>true</code> if the str
 
 Returns <code>true</code> if the specified string is in the trie, an <code>false</code> otherwise.
 
+####subTrie(prefix)
+
+Returns a new trie representing all strings of the original trie that match the prefix
+
+_example:_
+
+<pre>var trie = new JsSuffixTrie;
+trie.add("foo");
+trie.add("foobar");
+trie.add("barber");
+trie.subTrie("foo").toArray();  // returns ["foo", "foobar"]
+trie.size();                    // returns 2</pre>
+
+####find(prefix)
+
+Returns an array containing all the strings in the trie that match the prefix
+
+_example:_
+
+<pre>var trie = new JsSuffixTrie;
+trie.add("foo");
+trie.add("foobar");
+trie.add("barber");
+trie.find("foo");   // returns ["foo", "foobar"]</pre>
+
 ####each(callback)
 
 Calls the specified callback for each item in the trie. Returns the size of the trie.
