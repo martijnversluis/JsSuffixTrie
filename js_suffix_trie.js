@@ -3,6 +3,7 @@ JsSuffixTrie = (function() {
   function JsSuffixTrie() {
     this.count = 0;
     this.structure = {};
+    this.prefix = "";
   }
   JsSuffixTrie.prototype.add = function(string) {
     var chr, index, length, next, node;
@@ -57,10 +58,11 @@ JsSuffixTrie = (function() {
     node = this.findNode(prefix);
     subTrie = new JsSuffixTrie;
     subTrie.structure = node;
+    subTrie.prefix = prefix;
     return subTrie;
   };
   JsSuffixTrie.prototype.find = function(prefix) {
-    return JsSuffixTrie.toArray(this.findNode(prefix), "");
+    return JsSuffixTrie.nodeToArray(this.findNode(prefix), "");
   };
   JsSuffixTrie.prototype.findNode = function(string) {
     var currentChar, index, length, node;
@@ -77,7 +79,7 @@ JsSuffixTrie = (function() {
     return node;
   };
   JsSuffixTrie.prototype.each = function(callback) {
-    return JsSuffixTrie.each(callback, this.structure, 0, "");
+    return JsSuffixTrie.each(callback, this.structure, 0, this.prefix);
   };
   JsSuffixTrie.each = function(callback, node, index, string) {
     var property;
@@ -115,9 +117,9 @@ JsSuffixTrie = (function() {
     return trie;
   };
   JsSuffixTrie.prototype.toArray = function() {
-    return JsSuffixTrie.toArray(this.structure, "");
+    return JsSuffixTrie.nodeToArray(this.structure, this.prefix);
   };
-  JsSuffixTrie.toArray = function(node, prefix) {
+  JsSuffixTrie.nodeToArray = function(node, prefix) {
     var array;
     array = [];
     this.each(function(index, value) {
