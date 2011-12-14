@@ -62,7 +62,7 @@ JsSuffixTrie = (function() {
     return subTrie;
   };
   JsSuffixTrie.prototype.find = function(prefix) {
-    return JsSuffixTrie.nodeToArray(this.findNode(prefix), "");
+    return JsSuffixTrie.nodeToArray(this.findNode(prefix), prefix);
   };
   JsSuffixTrie.prototype.findNode = function(string) {
     var currentChar, index, length, node;
