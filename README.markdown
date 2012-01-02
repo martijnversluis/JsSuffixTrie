@@ -17,6 +17,14 @@ For more information about suffix tries:
 
 * [http://www.heppenstall.ca/academics/doc/242/F2001Archives/Ch11&#95;3&#95;tries.pdf](http://www.heppenstall.ca/academics/doc/242/F2001Archives/Ch11_3_tries.pdf)
 
+Possible applications
+---------------------
+
+* whitelists or blacklists
+* large arrays of string (e.g. email adresses)
+* autocomplete (e.g. tagging)
+* dictionary (e.g. Wordfeud)
+
 Documentation
 -------------
 
@@ -38,7 +46,7 @@ Removes the specified string from the trie. Returns <code>true</code> if the str
 
 ####contains(string)
 
-Returns <code>true</code> if the specified string is in the trie, an <code>false</code> otherwise.
+Returns <code>true</code> if the specified string is in the trie, otherwise <code>false</code>.
 
 ####subTrie(prefix)
 
@@ -111,14 +119,6 @@ var json = trie.toJSON();
 ...
 var originalTrie = JsSuffixTrie.fromJSON(json);</pre>
 
-Possible applications
----------------------
-
-* whitelists or blacklists
-* large arrays of string (e.g. email adresses)
-* autocomplete (e.g. tagging)
-* dictionary (e.g. Wordfeud)
-
 Benchmarks
 ----------
 
@@ -130,4 +130,5 @@ Planned
 -------
 
 * Internet Explorer benchmarks
+* More detailed benchmarks
 * rewriting #each without recursion
