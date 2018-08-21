@@ -136,22 +136,18 @@ If withKeys is anything other than true, find returns an array of values
 
 YarnBomb Example
 ----------
-<code>
+<pre>
 var yb = new YarnBomb();
 
 yb.add('doofoo', 'barbaz');
-
 yb.add('foo', 'myValue');
-
 yb.add('foobar', {"boys": "yard"});
 
 
 console.log(yb.find('foo')); // ["myValue", {"boys":"yard"}]
-
 console.log(yb.find('foo', true)); // [{"key":"foo","value":"myValue"},{"key":"foobar","value":{"boys":"yard"}}]
-
 console.log(yb.findKeys('foo')); // ["foo", "foobar"]
-</code>
+</pre>
 
 Benchmarks
 ----------
