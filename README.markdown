@@ -119,6 +119,36 @@ var json = trie.toJSON();
 ...
 var originalTrie = JsSuffixTrie.fromJSON(json);</pre>
 
+YarnBomb
+----------
+YarnBomb is a wrapper for JsSuffixTrie.
+
+It allows the storage of values as well as keys, by extending JsSuffixTrie in 3 ways:
+
+1) Add now takes a second argument; the value to store against this key
+
+2) Find now takes an optional second argument; withKeys
+
+If withKeys is true, find returns an array of key/value objects
+If withKeys is anything other than true, find returns an array of values
+
+3) A new method called findKeys is added, which preserves the functionality of JsSuffixTrie's original find method
+
+YarnBomb Example
+----------
+<pre>
+var yb = new YarnBomb();
+
+yb.add('doofoo', 'barbaz');
+yb.add('foo', 'myValue');
+yb.add('foobar', {"boys": "yard"});
+
+
+console.log(yb.find('foo')); // ["myValue", {"boys":"yard"}]
+console.log(yb.find('foo', true)); // [{"key":"foo","value":"myValue"},{"key":"foobar","value":{"boys":"yard"}}]
+console.log(yb.findKeys('foo')); // ["foo", "foobar"]
+</pre>
+
 Benchmarks
 ----------
 
