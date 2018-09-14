@@ -72,7 +72,7 @@ class JsSuffixTrie
   each: (callback) -> JsSuffixTrie.each(callback, @structure, 0, @prefix)
     
   @each: (callback, node, index, string) ->
-    callback(index++, string) if node.terminator
+    callback(index++, string) if node && node.terminator
   
     for property of node
       index = @each(callback, node[property], index, string + property)

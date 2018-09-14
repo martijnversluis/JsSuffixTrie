@@ -83,7 +83,7 @@ JsSuffixTrie = (function() {
   };
   JsSuffixTrie.each = function(callback, node, index, string) {
     var property;
-    if (node.terminator) {
+    if (node && node.terminator) {
       callback(index++, string);
     }
     for (property in node) {
